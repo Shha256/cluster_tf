@@ -1,4 +1,4 @@
-resource "aws_iam_role" "test_role" {
+resource "aws_iam_role" "eks_cluster_role" {
   name = "${var.project_name}-cluster-role"
 
   # Terraform's "jsonencode" function converts a
@@ -20,7 +20,12 @@ resource "aws_iam_role" "test_role" {
   tags = merge(
     var.tags,
     {
-      Name = "${var.project_name}-vpc"
+      Name = "${var.project_name}-iam"
     }
   )
+}
+
+resource "aws_iam_role_policy_attachment" "eks_cluster_role_attachment" {
+  role       = aws_iam_role.eks_cluster_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
