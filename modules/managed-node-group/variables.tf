@@ -12,14 +12,18 @@ variable "tags" {
 
 
 }
-variable "public_subnet_1a" {
+variable "cluster_name" {
   type        = string
-  description = "Subnet to create EKS cluster AZ 1a"
+  description = "eks Cluster name to creat Mng"
 
 }
-variable "public_subnet_1b" {
+variable "subnet_private_1a" {
   type        = string
-  description = "Subnet to create EKS cluster AZ 1a"
+  description = "Subnet ID from AZ 1a"
 
 }
+variable "subnet_private_1b" {
+  type        = string
+  description = "Subnet ID from AZ 1a"
 
+}
