@@ -9,3 +9,16 @@ variable "project_name" {
 
 
 }
+variable "region" {
+  type        = string
+  description = "aws region"
+
+
+
+}
+
+variable "tags" {
+  type        = map(any)
+  description = "tags"
+
+}
