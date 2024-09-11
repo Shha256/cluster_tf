@@ -12,14 +12,16 @@ variable "tags" {
 
 
 }
-variable "public_subnet_1a" {
+
+
+variable "oidc" {
   type        = string
-  description = "Subnet to create EKS cluster AZ 1a"
+  description = "https url from Oidc provider of the eks cluster "
 
 }
-variable "public_subnet_1b" {
+variable "cluster_name" {
   type        = string
-  description = "Subnet to create EKS cluster AZ 1a"
+  description = "name cluster"
 
 }
 

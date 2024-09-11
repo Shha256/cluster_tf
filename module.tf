@@ -24,3 +24,11 @@ module "eks_managed_node_group" {
 
 
 }
+
+module "eks_aws_load_balanacer_controller" {
+  source       = "./modules/aws-load-balancer-controle"
+  project_name = var.project_name
+  tags         = local.tags
+  oidc         = module.eks_cluster.oidc
+  cluster_name = module.eks_cluster.cluster_name
+}
