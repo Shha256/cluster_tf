@@ -6,7 +6,7 @@ resource "helm_release" "eks_helm_controller" {
   namespace  = "kube-system"
 
   set {
-    name  = "clusterName"
+    name  = "cluster.name"
     value = var.cluster_name
   }
 
@@ -17,6 +17,8 @@ resource "helm_release" "eks_helm_controller" {
 
   set {
     name  = "serviceAccount.name"
-    value = "aws-load-balancer-controller"
+    value = kubernetes_service_account.eks_controller_sa.metadata.0.name
   }
+
+  timeout = 600
 }
