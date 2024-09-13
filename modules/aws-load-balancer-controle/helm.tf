@@ -6,8 +6,8 @@ resource "helm_release" "eks_helm_controller" {
   namespace  = "kube-system"
 
   set {
-    name  = "cluster.name"
-    value = "var.cluster_name"
+    name  = "clusterName"
+    value = var.cluster_name
   }
 
   set {
@@ -18,6 +18,5 @@ resource "helm_release" "eks_helm_controller" {
   set {
     name  = "serviceAccount.name"
     value = "aws-load-balancer-controller"
-
   }
 }
