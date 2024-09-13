@@ -31,7 +31,7 @@ provider "kubernets" {
   exec {
 
 
-    api_version = "clinet.autentication.k8s.io/v1beta1"
+    api_version = "clinet.autentication.k8s.io/v1"
     args        = ["eks", "get-token", "--cluster-name", module.eks_cluster.cluster_name]
     command     = "aws"
   }
